@@ -1,40 +1,46 @@
 import React from 'react';
 import './App.scss';
 
+import TRIVIA_DATA from './trivia.data'
+import Answer from './answer/answer.component'
+
 class App extends React.Component {
   constructor() {
     super()
 
     this.state = {
-      id: 'question',
-      visibility: null
+      visibility: null,
+      trivia: TRIVIA_DATA,
+      answer2: 'Head',
+      answer3: 'Arm',
+      answer4: 'Foot'
     }
   }
 
   componentDidMount() {
     setTimeout(function() { //Start the timer
-        this.setState({visibility: 'visible'}) //After 1 second, set render to true
+        this.setState({visibility: 'visible'}) //After 4 seconds, set render to true
     }.bind(this), 4000)
   }
   
   render() {
    
-    // const timer = () => {
-    //   setTimeout(function(){this.setState( {visibility: 'visible'} )}, 3000)
-    
-    //   }
    return (
     <div id="container">
       <section id='top-section'>
       
       </section>
-   <h2 id={this.state.id}><p style={{visibility: this.state.visibility}}>In which part of the body would you find the Patella?</p></h2>
+
+
+   <h2 id="question"><p style={{visibility: this.state.visibility}}>{this.state.trivia[0].question}</p></h2>
+   
    <div id="answers-container">
-    <div id="a" className="answers">Knee</div>
-    <div id="b" className="answers">Head</div>
-    <div id="c" className="answers">Arm</div>
-    <div id="d" className="answers">Foot</div>
-   </div>
+   <Answer id='a' key={1}  myAnswer1={this.state.trivia[0].a}/>
+   <Answer id='b'key={2} myAnswer1={this.state.trivia[0].b}/>
+   <Answer id='c' key={3}myAnswer1={this.state.trivia[0].c}/>
+   <Answer id='d' key={4} myAnswer1={this.state.trivia[0].d}/>
+    </div>
+  
    </div>
   );
 }

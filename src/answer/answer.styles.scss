@@ -1,0 +1,69 @@
+#answers-container {
+    width: 80vw;
+    max-width: 1140px;
+    min-height: 200px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background: transparent;
+
+    .answers {
+        font-size: 20px;
+        background-color:  #4726bb;
+        height: 80px;
+        width: 49%;
+        border-radius: 10px;
+        border: 1px gold solid;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: bolder;
+        cursor: pointer;
+        
+    }
+
+   
+}
+#a { 
+    animation: 1s slideRight forwards;
+    animation-delay: 5s;
+    opacity: 0;
+}
+#b { 
+    animation: 1s slideLeft forwards;
+    animation-delay: 6s;
+    opacity: 0;
+}
+#c { 
+    animation: 1s slideRight forwards;
+    animation-delay: 7s;
+    opacity: 0;
+}
+#d { 
+    animation: 1s slideLeft forwards;
+    animation-delay: 8s;
+    opacity: 0;
+}
+
+
+@keyframes slideRight    {
+from   {
+    transform:translateX(-100%);
+}
+
+to   {
+    transform:translateX(0%);
+    opacity: 1;
+}
+}
+
+@keyframes slideLeft    {
+from   {
+     transform:translateX(+100%);
+ }
+
+ to   {
+     transform:translateX(0%);
+     opacity: 1;
+ }
+}
