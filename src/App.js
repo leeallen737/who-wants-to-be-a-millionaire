@@ -11,12 +11,9 @@ class App extends React.Component {
     this.state = {
       visibility: null,
       trivia: TRIVIA_DATA,
-      answer2: 'Head',
-      answer3: 'Arm',
-      answer4: 'Foot',
-      
+      questionNumber: 0
     }
-    
+    this.handler = this.handler.bind(this)
   }
 
   
@@ -28,6 +25,12 @@ class App extends React.Component {
     
   }
   
+  handler(number) {
+    setTimeout(() => {
+      this.setState({
+        questionNumber: number})
+    }, 8000)
+  }
 
 
 
@@ -39,13 +42,13 @@ class App extends React.Component {
       </section>
 
 
-   <h2 id="question"><p style={{visibility: this.state.visibility}}>{this.state.trivia[0].question}</p></h2>
+   <h2 id="question"><p style={{visibility: this.state.visibility}}>{this.state.trivia[this.state.questionNumber].question}</p></h2>
    
    <div id="answers-container">
-   <Answer id='a' correctAnswer={this.state.trivia[0].correct} key={1} myAnswer={this.state.trivia[0].a}/>
-   <Answer id='b' correctAnswer={this.state.trivia[0].correct} key={2} myAnswer={this.state.trivia[0].b}/>
-   <Answer id='c' correctAnswer={this.state.trivia[0].correct} key={3} myAnswer={this.state.trivia[0].c}/>
-   <Answer id='d' correctAnswer={this.state.trivia[0].correct} key={4} myAnswer={this.state.trivia[0].d}/>
+   <Answer id='a' handler={this.handler} correctAnswer={this.state.trivia[this.state.questionNumber].correct} questionNumber={this.state.questionNumber} key={1} myAnswer={this.state.trivia[this.state.questionNumber].a}/>
+   <Answer id='b' handler={this.handler} correctAnswer={this.state.trivia[this.state.questionNumber].correct} questionNumber={this.state.questionNumber} key={2} myAnswer={this.state.trivia[this.state.questionNumber].b}/>
+   <Answer id='c' handler={this.handler} correctAnswer={this.state.trivia[this.state.questionNumber].correct} questionNumber={this.state.questionNumber} key={3} myAnswer={this.state.trivia[this.state.questionNumber].c}/>
+   <Answer id='d' handler={this.handler} correctAnswer={this.state.trivia[this.state.questionNumber].correct} questionNumber={this.state.questionNumber} key={4} myAnswer={this.state.trivia[this.state.questionNumber].d}/>
     </div>
   
    </div>
