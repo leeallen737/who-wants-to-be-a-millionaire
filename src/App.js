@@ -28,7 +28,7 @@ class App extends React.Component {
   handler(number) {
     setTimeout(() => {
       this.setState({
-        questionNumber: number})
+        questionNumber: this.state.questionNumber + number})
     }, 8000)
   }
 

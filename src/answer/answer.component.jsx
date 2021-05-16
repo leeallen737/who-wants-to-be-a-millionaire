@@ -18,7 +18,7 @@ class Answer extends React.Component {
 
     colorChange() {
         setTimeout(() => {
-            this.setState({backgroundColor: 'green'})
+            this.setState({backgroundColor: 'orange'})
         }, 1000);
         
         setTimeout(() => {
@@ -55,7 +55,7 @@ class Answer extends React.Component {
             this.setState({backgroundColor: 'green'})
         }, 6200);
         setTimeout(() => {
-            this.setState({backgroundColor: 'orange'})
+            this.setState({backgroundColor: 'green'})
         }, 6400);
         setTimeout(() => {
             this.setState({backgroundColor: '#4726bb'})
